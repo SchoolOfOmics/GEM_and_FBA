@@ -1,0 +1,65 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "scRNAseq Analysis of Dengue",
+    "section": "",
+    "text": "Project Summary\nThis project involved the reanalysis of a publicly available single-cell RNA sequencing (scRNA-seq) dataset generated from peripheral blood mononuclear cells (PBMCs) of dengue virus-infected human subjects. While the original study focused on immune profiling and disease severity, our objective was to revisit this dataset with a new perspective: to investigate the metabolic reprogramming of host cells induced by dengue virus infection.\nAfter downloading and curating the raw sequencing data (FASTQ format or processed matrices), we applied a standardized analysis pipeline using tools such as Cell Ranger, Seurat, and DESeq2 in R, alongside alignment and quantification tools like STAR on a Linux-based environment. Our initial steps included:\nOnce confident in cell-type identity and group classification, we shifted our focus toward host metabolic pathways. Using curated gene sets and public databases such as KEGG, Reactome, and Recon3D, we extracted metabolic gene expression profiles across different immune cell types.\nTo move beyond gene-level analysis, we employed constraint-based modeling approaches such as Flux Balance Analysis (FBA) to simulate and quantify changes in cellular metabolism. Using context-specific genome-scale metabolic models (GEMs), we mapped transcriptomic signals to metabolic reaction constraints, allowing us to:\nOur results revealed significant rewiring of metabolic programs in specific immune cell populations, suggesting that dengue virus may exploit host metabolic plasticity to support its replication or modulate immune responses. For instance, enhanced glycolytic activity and suppressed oxidative phosphorylation were observed in certain pro-inflammatory monocyte clusters.\nThis integrative approach, combining scRNA-seq with systems biology and metabolic modeling, offers a high-resolution view of how host metabolism responds dynamically to viral infection. Such insights may guide future research into host-directed therapies targeting metabolic pathways during dengue and other viral diseases.",
+    "crumbs": [
+      "Project Summary"
+    ]
+  },
+  {
+    "objectID": "index.html#project-summary",
+    "href": "index.html#project-summary",
+    "title": "scRNAseq Analysis of Dengue",
+    "section": "",
+    "text": "Quality control and filtering of low-quality cells\nNormalization and scaling of expression data\nDimensionality reduction (PCA, UMAP)\nClustering and cell type annotation\nDifferential gene expression analysis between infected and healthy/control groups\n\n\n\n\nPredict flux changes in central carbon metabolism (glycolysis, TCA cycle)\nIdentify pathways selectively up- or down-regulated in monocytes, T cells, and B cells\nInfer potential metabolic bottlenecks or rerouting induced by the virus\nCompare metabolic phenotypes between acute and convalescent phases of infection",
+    "crumbs": [
+      "Project Summary"
+    ]
+  },
+  {
+    "objectID": "intro.html",
+    "href": "intro.html",
+    "title": "Experiment Design",
+    "section": "",
+    "text": "This study integrates multiple single-cell RNA sequencing (scRNA-seq) datasets to investigate host responses to dengue virus (DENV) infection with a focus on immune dynamics and metabolic reprogramming. The analysis incorporates data from both controlled experimental infections and natural clinical cases, providing a comprehensive view of the human response to DENV.\n\nHuman Challenge Study (Public Dataset 1)\n\nThe first dataset originates from a controlled human challenge study, where five healthy volunteers were experimentally infected with DENV under clinical supervision. Peripheral blood mononuclear cells (PBMCs) were collected at six time points post-infection (e.g., days 0, 2, 4, 6, 8, 10), enabling a detailed time-resolved analysis of the immune response as the infection progressed. This longitudinal design allows for modeling early host responses and tracking dynamic changes in cellular states and gene expression patterns.\n\nNatural Infection Cohort (Public Dataset 2)\n\nThe second public dataset includes samples from five individuals naturally infected with dengue virus in an endemic setting. These samples represent real-world, acute-phase infections and serve as an external validation for the patterns observed in the challenge study. Unlike the time-resolved design of the first dataset, this cohort provides a snapshot of the host response during peak infection.\n\nIn-House Clinical Dataset (New Data)\n\nAdditionally, we generated a new scRNA-seq dataset from a clinical study conducted at our institute. This dataset includes 10 dengue-infected patients and 10 healthy control individuals, with PBMCs collected during the acute phase of infection. This independent cohort enhances the robustness of our findings and supports cross-cohort comparison.\n\n\n\n\nExperiment plan",
+    "crumbs": [
+      "Experiment Design"
+    ]
+  },
+  {
+    "objectID": "processing.html",
+    "href": "processing.html",
+    "title": "Data Processing",
+    "section": "",
+    "text": "QC\nBefore alignment, raw reads must undergo quality assessment to ensure that sequencing artifacts, low-quality bases, or adapter contamination do not interfere with downstream results. Quality control was performed using tools such as FastQC and MultiQC, which provide visual reports of read quality metrics across all samples.\nTypical metrics inspected include:\n# Run FastQC on all FASTQ files\nfastqc *.fastq.gz -o qc_reports\n\n# Aggregate FastQC reports using MultiQC\nmultiqc qc_reports -o qc_reports",
+    "crumbs": [
+      "Workflow",
+      "Data Processing"
+    ]
+  },
+  {
+    "objectID": "processing.html#qc",
+    "href": "processing.html#qc",
+    "title": "Data Processing",
+    "section": "",
+    "text": "Per base sequence quality\nAdapter content\nPer sequence GC content\nSequence length distribution",
+    "crumbs": [
+      "Workflow",
+      "Data Processing"
+    ]
+  },
+  {
+    "objectID": "processing.html#alignment",
+    "href": "processing.html#alignment",
+    "title": "Data Processing",
+    "section": "Alignment",
+    "text": "Alignment\nAfter QC, reads were aligned to the human reference genome using Cell Ranger (10x Genomics’ pipeline for scRNA-seq data). Cell Ranger handles alignment, barcode processing, and unique molecular identifier (UMI) counting to produce filtered gene-cell count matrices\nThe alignment step maps reads to the genome and links each read to a specific cell barcode, enabling the reconstruction of gene expression per cell.\n\ncellranger count --id=sample01 \\\n  --transcriptome=GRCh38 \\\n  --fastqs=/path/to/fastqs \\\n  --sample=sample01 \\\n  --localcores=8 \\\n  --localmem=64",
+    "crumbs": [
+      "Workflow",
+      "Data Processing"
+    ]
+  }
+]
