@@ -1,0 +1,45 @@
+# Data Processing {.unnumbered}
+
+The single-cell RNA sequencing (scRNA-seq) datasets used in this study were downloaded from the Sequence Read Archive (SRA). These raw sequencing data files (typically in .fastq.gz format) represent reads captured from individual cells and were processed locally on a high-performance computing (HPC) cluster or Linux-based workstation.
+
+The overall data processing workflow includes:
+
+-   Downloading raw data
+-   Performing quality control (QC)
+-   Aligning reads to the human reference genome
+-   Generating gene-barcode matrices for downstream analysis
+
+## QC
+
+Before alignment, raw reads must undergo quality assessment to ensure that sequencing artifacts, low-quality bases, or adapter contamination do not interfere with downstream results. Quality control was performed using tools such as FastQC and MultiQC, which provide visual reports of read quality metrics across all samples.
+
+Typical metrics inspected include:
+
+-   Per base sequence quality
+-   Adapter content
+-   Per sequence GC content
+-   Sequence length distribution
+
+```{r,engine='bash',eval=FALSE}
+# Run FastQC on all FASTQ files
+fastqc *.fastq.gz -o qc_reports
+
+# Aggregate FastQC reports using MultiQC
+multiqc qc_reports -o qc_reports
+```
+
+## Alignment
+
+After QC, reads were aligned to the human reference genome using **Cell Ranger** (10x Genomics' pipeline for scRNA-seq data). Cell Ranger handles alignment, barcode processing, and unique molecular identifier (UMI) counting to produce filtered gene-cell count matrices
+
+The alignment step maps reads to the genome and links each read to a specific cell barcode, enabling the reconstruction of gene expression per cell.
+
+```{r,engine='bash',eval=FALSE}
+cellranger count --id=sample01 \
+  --transcriptome=GRCh38 \
+  --fastqs=/path/to/fastqs \
+  --sample=sample01 \
+  --localcores=8 \
+  --localmem=64
+
+```
