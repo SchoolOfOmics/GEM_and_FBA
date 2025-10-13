@@ -1,24 +1,19 @@
-## Project Summary {.unnumbered}
+Thank you for attending the talk titled *"AI Meets Metabolism: Efficient Multi-Omics Integration with GEMs."*
 
-This project involved the reanalysis of a publicly available single-cell RNA sequencing (scRNA-seq) dataset generated from peripheral blood mononuclear cells (PBMCs) of dengue virus-infected human subjects. While the original study focused on immune profiling and disease severity, our objective was to revisit this dataset with a new perspective: to investigate the metabolic reprogramming of host cells induced by dengue virus infection.
+In this hands-on session, we will cover how fluxosome data from the tissue or cell system under study is generated which is used for AI-assisted multi-omics integration. This workshop is designed to introduce participants the concepts of computational systems biology.
 
-After downloading and curating the raw sequencing data (FASTQ format or processed matrices), we applied a standardized analysis pipeline using tools such as Cell Ranger, Seurat, and DESeq2 in R, alongside alignment and quantification tools like STAR on a Linux-based environment. Our initial steps included:
+During the session, you will:
 
--   Quality control and filtering of low-quality cells
--   Normalization and scaling of expression data
--   Dimensionality reduction (PCA, UMAP)
--   Clustering and cell type annotation
--   Differential gene expression analysis between infected and healthy/control groups
+-   Explore genome-scale metabolic network models.
+-   Learn strategies to contextualize models using experimental or omics data.
+-   Apply Flux Balance Analysis (FBA) to predict and interpret cellular metabolic behaviors.
 
-Once confident in cell-type identity and group classification, we shifted our focus toward host metabolic pathways. Using curated gene sets and public databases such as KEGG, Reactome, and Recon3D, we extracted metabolic gene expression profiles across different immune cell types.
+Through guided examples and practical exercises, participants will gain the skills to analyze metabolic fluxes, interpret FBA results, and translate model outputs into meaningful biological insights.
 
-To move beyond gene-level analysis, we employed constraint-based modeling approaches such as Flux Balance Analysis (FBA) to simulate and quantify changes in cellular metabolism. Using context-specific genome-scale metabolic models (GEMs), we mapped transcriptomic signals to metabolic reaction constraints, allowing us to:
+## Introduction to Systems Biology {.unnumbered}
 
--   Predict flux changes in central carbon metabolism (glycolysis, TCA cycle)
--   Identify pathways selectively up- or down-regulated in monocytes, T cells, and B cells
--   Infer potential metabolic bottlenecks or rerouting induced by the virus
--   Compare metabolic phenotypes between acute and convalescent phases of infection
+Over the past few decades, the scientific community has witnessed remarkable technological progress that has enabled the generation of high-depth, multidimensional omics data, along with the development of advanced informatics tools to analyze them. These diverse data types include transcriptomics, proteomics, metabolomics, lipidomics, and microbiome profiles. Integrative analysis of such multilayered datasets provides valuable system-level insights into biological processes and disease mechanisms. Techniques such as network analysis and machine learning can be applied to interpret complex, multi-dimensional data; however, their effective use requires careful consideration of both the biological question and the methodological purpose.
 
-Our results revealed significant rewiring of metabolic programs in specific immune cell populations, suggesting that dengue virus may exploit host metabolic plasticity to support its replication or modulate immune responses. For instance, enhanced glycolytic activity and suppressed oxidative phosphorylation were observed in certain pro-inflammatory monocyte clusters.
+Systems biology is an interdisciplinary field focused on the integrative analysis of multilayered data to understand complex biological mechanisms. Biological systems are often described as “complex systems,” composed of numerous interacting elements that collectively give rise to emergent behaviors. Unlike purely physical complex systems made of identical components, biological systems consist of diverse and multifunctional elements that interact nonlinearly and selectively to generate coherent and regulated behaviors. In such systems, functionality arises not only from the structure of the network but also from the specific properties and interactions of its components, highlighting that biological systems are best viewed as symbiotic rather than merely complex.
 
-This integrative approach, combining scRNA-seq with systems biology and metabolic modeling, offers a high-resolution view of how host metabolism responds dynamically to viral infection. Such insights may guide future research into host-directed therapies targeting metabolic pathways during dengue and other viral diseases.
+The emergence of high-throughput experimental technologies now allows researchers to investigate cellular components in detail and to explore the interactions that define their collective function. Understanding the topological and dynamic properties of the diverse networks governing cellular behavior remains one of the central challenges in modern biology. Systems biology seeks to explain biological function in terms of the interactions among components, whether these components are genes, proteins, metabolites, or other molecular entities. With the ability to measure a vast array of such components, biological systems have become increasingly complex to study, demanding sophisticated computational approaches grounded in mathematics and statistics. This need has driven the growth of systems biology as a discipline, emphasizing network-based analyses to decipher how various biological components interact to shape cellular and organismal functions.

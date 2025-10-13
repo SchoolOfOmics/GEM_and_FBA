@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Understanding metabolic networks</title>
+<title>Contextualization of GEM – Understanding metabolic networks</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,7 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./GEM.html" rel="next">
+<link href="./FBA.html" rel="next">
+<link href="./GEM.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -82,7 +83,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Introduction to Systems Biology</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./GEM.html">Key Concepts</a></li><li class="breadcrumb-item"><a href="./Context.html">Contextualization of GEM</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -116,7 +117,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Introduction to Systems Biology</span></a>
   </div>
 </li>
@@ -137,7 +138,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Context.html" class="sidebar-item-text sidebar-link">
+  <a href="./Context.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Contextualization of GEM</span></a>
   </div>
 </li>
@@ -183,21 +184,15 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
-   
-  <ul>
-  <li><a href="#introduction-to-systems-biology" id="toc-introduction-to-systems-biology" class="nav-link active" data-scroll-target="#introduction-to-systems-biology">Introduction to Systems Biology</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./GEM.html">Key Concepts</a></li><li class="breadcrumb-item"><a href="./Context.html">Contextualization of GEM</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Understanding metabolic networks</h1>
+<h1 class="title">Contextualization of GEM</h1>
 </div>
 
 
@@ -214,23 +209,14 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Thank you for attending the talk titled <em>“AI Meets Metabolism: Efficient Multi-Omics Integration with GEMs.”</em></p>
-<p>In this hands-on session, we will cover how fluxosome data from the tissue or cell system under study is generated which is used for AI-assisted multi-omics integration. This workshop is designed to introduce participants the concepts of computational systems biology.</p>
-<p>During the session, you will:</p>
-<ul>
-<li>Explore genome-scale metabolic network models.</li>
-<li>Learn strategies to contextualize models using experimental or omics data.</li>
-<li>Apply Flux Balance Analysis (FBA) to predict and interpret cellular metabolic behaviors.</li>
-</ul>
-<p>Through guided examples and practical exercises, participants will gain the skills to analyze metabolic fluxes, interpret FBA results, and translate model outputs into meaningful biological insights.</p>
-<section id="introduction-to-systems-biology" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="introduction-to-systems-biology">Introduction to Systems Biology</h2>
-<p>Over the past few decades, the scientific community has witnessed remarkable technological progress that has enabled the generation of high-depth, multidimensional omics data, along with the development of advanced informatics tools to analyze them. These diverse data types include transcriptomics, proteomics, metabolomics, lipidomics, and microbiome profiles. Integrative analysis of such multilayered datasets provides valuable system-level insights into biological processes and disease mechanisms. Techniques such as network analysis and machine learning can be applied to interpret complex, multi-dimensional data; however, their effective use requires careful consideration of both the biological question and the methodological purpose.</p>
-<p>Systems biology is an interdisciplinary field focused on the integrative analysis of multilayered data to understand complex biological mechanisms. Biological systems are often described as “complex systems,” composed of numerous interacting elements that collectively give rise to emergent behaviors. Unlike purely physical complex systems made of identical components, biological systems consist of diverse and multifunctional elements that interact nonlinearly and selectively to generate coherent and regulated behaviors. In such systems, functionality arises not only from the structure of the network but also from the specific properties and interactions of its components, highlighting that biological systems are best viewed as symbiotic rather than merely complex.</p>
-<p>The emergence of high-throughput experimental technologies now allows researchers to investigate cellular components in detail and to explore the interactions that define their collective function. Understanding the topological and dynamic properties of the diverse networks governing cellular behavior remains one of the central challenges in modern biology. Systems biology seeks to explain biological function in terms of the interactions among components, whether these components are genes, proteins, metabolites, or other molecular entities. With the ability to measure a vast array of such components, biological systems have become increasingly complex to study, demanding sophisticated computational approaches grounded in mathematics and statistics. This need has driven the growth of systems biology as a discipline, emphasizing network-based analyses to decipher how various biological components interact to shape cellular and organismal functions.</p>
+<p>The <strong>Human-GEM</strong> represents a comprehensive, generic model of human metabolism, encompassing metabolic reactions that are known to occur in any human cell. However, because it includes all possible reactions, it does not correspond to the metabolism of any specific tissue or cell type, where only a subset of reactions is active. To address this, a <strong>GEM extraction</strong> or <strong>contextualization</strong> process is required to generate a <strong>context-specific</strong> or <strong>tissue-specific metabolic model</strong>. This process involves integrating relevant datasets, such as transcriptomic, proteomic, or metabolomic data into the reference metabolic network to tailor the model to a particular biological context.</p>
+<p>Generic models such as Recon1, EHMN, and HumanCyc are valuable for representing overall human metabolism, but they are not tissue-specific and therefore cannot directly be used to study particular cell types or diseases. Early efforts in tissue-specific modeling utilized transcriptional data to derive models for several human tissues based on subsets of Recon1. Although these models provided insights into tissue-level metabolic behavior under various genetic and physiological conditions, they were limited by the approximations inherent in using transcriptomic data alone. Later approaches combined transcriptomic and proteomic data with Recon1 to develop more flexible, tissue-specific models, such as those representing liver metabolism.</p>
+<p>The goal of computational algorithms used for tissue or cell-type specific model construction is to integrate information on the presence or absence of metabolic enzymes while maintaining a <strong>well-connected metabolic network</strong>. A well-connected network ensures that metabolites consumed in one reaction can be produced by another or are available from the cellular environment. However, challenges arise because transcriptomic data are often noisy, relative rather than absolute, and do not always correlate with enzyme abundance or activity.</p>
+<p>To improve the contextualization process, Agren and colleagues developed an automated computational framework for generating cell-type-specific genome-scale metabolic networks. The central component of this framework is the <strong>Integrative Network Inference for Tissues (INIT)</strong> algorithm, which incorporates evidence from the <strong>Human Protein Atlas (HPA)</strong> regarding the presence or absence of metabolic enzymes in specific cell types. INIT also integrates tissue-specific transcriptomic data and constrains the resulting model so that it can produce metabolites experimentally identified in a given tissue, based on information from metabolomics databases such as the Human Metabolome Database (HMDB).</p>
+<p>A key feature of GEMs is the hierarchical structure of <strong>gene–transcript–protein–reaction (GTPR)</strong> associations. Each metabolic reaction in the model is linked to one or more enzymes, which in turn are connected to their corresponding genes and transcripts. The INIT algorithm assigns evidence-based scores to reactions based on the expression or presence of their associated genes and proteins. Using these scores, the algorithm identifies a subnetwork consisting of reactions with strong experimental support for activity in the target cell type. The extraction process seeks to maximize the total evidence score while ensuring that all reactions in the resulting network can carry flux and that metabolites detected experimentally can be synthesized from known precursors.</p>
+<p>Although INIT provides valuable snapshots of tissue-specific metabolism, the resulting models are not directly functional for simulation-based studies. To address this limitation, a modified approach known as <strong>task-driven Integrative Network Inference for Tissues (tINIT)</strong> was developed. The tINIT algorithm enables the reconstruction of <strong>functional genome-scale metabolic models</strong> by defining specific metabolic tasks that the contextualized model must be capable of performing. It improves upon INIT by ensuring that reversible reactions cannot carry flux in both directions simultaneously and by allowing users to specify whether net production of all metabolites should be permitted. Additionally, tINIT incorporates a list of core metabolic reactions expected to occur in all cell types, ensuring that reconstructed models maintain essential metabolic functionality while accurately representing tissue-specific features.</p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -634,10 +620,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./GEM.html" class="pagination-link" aria-label="Genome scale metabolic network model (GEM)">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Genome scale metabolic network model (GEM)</span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./GEM.html" class="pagination-link" aria-label="Genome scale metabolic network model (GEM)">
-        <span class="nav-page-text">Genome scale metabolic network model (GEM)</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./FBA.html" class="pagination-link" aria-label="Flux Balance Analysis (FBA)">
+        <span class="nav-page-text">Flux Balance Analysis (FBA)</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -1,4 +1,35 @@
 # References {.unnumbered}
 
-::: {#refs}
-:::
+1. Kitano, H., Computational systems biology. Nature, 2002. 420(6912): p. 206-10
+
+2. Joshi, A., et al., Systems biology in cardiovascular disease: a multiomics approach. Nat Rev Cardiol, 2021. 18(5): p. 313-330.
+
+3. Ma, H., et al., The Edinburgh human metabolic network reconstruction and its functional analysis. Mol Syst Biol, 2007. 3: p. 135.
+
+4. Duarte, N.C., et al., Global reconstruction of the human metabolic network based on genomic and bibliomic data. Proc Natl Acad Sci U S A, 2007. 104(6): p. 1777- 82.
+
+5. Thiele, I., et al., A community-driven global reconstruction of human metabolism. Nat Biotechnol, 2013. 31(5): p. 419-25.
+
+6. Brunk, E., et al., Recon3D enables a three-dimensional view of gene variation in human metabolism. Nat Biotechnol, 2018. 36(3): p. 272-281.
+
+7. Mardinoglu, A., et al., Integration of clinical data with a genome-scale metabolic model of the human adipocyte. Mol Syst Biol, 2013. 9: p. 649.
+
+8. Wishart, D.S., et al., HMDB: the Human Metabolome Database. Nucleic Acids Res, 2007. 35(Database issue): p. D521-6.
+
+9. Agren, R., et al., Identification of anticancer drugs for hepatocellular carcinoma through personalized genome-scale metabolic modeling. Mol Syst Biol, 2014.
+10(3): p. 721.
+
+10. Orth, J.D., I. Thiele, and B.O. Palsson, What is flux balance analysis? Nat Biotechnol, 2010. 28(3): p. 245-8.
+
+11. Mardinoglu, A., et al., Genome-scale metabolic modelling of hepatocytes reveals serine deficiency in patients with non-alcoholic fatty liver disease. Nat Commun, 2014. 5: p. 3083.
+
+12. Robinson, J.L., et al., An atlas of human metabolism. Sci Signal, 2020. 13(624)
+
+13. Romero, P., et al., Computational prediction of human metabolic pathways from the complete human genome. Genome Biol, 2005. 6(1): p. R2.
+
+14. Agren, R., et al., Reconstruction of genome-scale active metabolic networks for 69 human cell types and 16 cancer types using INIT. PLoS Comput Biol, 2012. 8(5): p. e1002518
+
+15. Lieven, C., et al., MEMOTE for standardized genome-scale metabolic model testing. Nat Biotechnol, 2020. 38(3): p. 272-276.
+
+16. Ebrahim, A., Lerman, J.A., Palsson, B.O. et al. COBRApy: COnstraints-Based Reconstruction and Analysis for Python. BMC Syst Biol 7, 74 (2013). https://doi.org/10.1186/1752-0509-7-74
+

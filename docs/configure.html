@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Understanding metabolic networks</title>
+<title>System Configuration – Understanding metabolic networks</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -30,7 +65,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./GEM.html" rel="next">
+<link href="./exercises.html" rel="next">
+<link href="./FBA.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -82,7 +118,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Introduction to Systems Biology</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./configure.html">Exercises</a></li><li class="breadcrumb-item"><a href="./configure.html">System Configuration</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -116,7 +152,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Introduction to Systems Biology</span></a>
   </div>
 </li>
@@ -160,7 +196,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./configure.html" class="sidebar-item-text sidebar-link">
+  <a href="./configure.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">System Configuration</span></a>
   </div>
 </li>
@@ -188,16 +224,20 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#introduction-to-systems-biology" id="toc-introduction-to-systems-biology" class="nav-link active" data-scroll-target="#introduction-to-systems-biology">Introduction to Systems Biology</a></li>
+  <li><a href="#installation-of-cobrapy" id="toc-installation-of-cobrapy" class="nav-link active" data-scroll-target="#installation-of-cobrapy">Installation of COBRApy</a></li>
+  <li><a href="#python-development-environments-quick-guide" id="toc-python-development-environments-quick-guide" class="nav-link" data-scroll-target="#python-development-environments-quick-guide">Python Development Environments: Quick Guide</a>
+  <ul class="collapse">
+  <li><a href="#quick-comparison" id="toc-quick-comparison" class="nav-link" data-scroll-target="#quick-comparison">Quick Comparison</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./configure.html">Exercises</a></li><li class="breadcrumb-item"><a href="./configure.html">System Configuration</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Understanding metabolic networks</h1>
+<h1 class="title">System Configuration</h1>
 </div>
 
 
@@ -214,22 +254,96 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Thank you for attending the talk titled <em>“AI Meets Metabolism: Efficient Multi-Omics Integration with GEMs.”</em></p>
-<p>In this hands-on session, we will cover how fluxosome data from the tissue or cell system under study is generated which is used for AI-assisted multi-omics integration. This workshop is designed to introduce participants the concepts of computational systems biology.</p>
-<p>During the session, you will:</p>
+<p>In this workshop, the Python package <a href="https://github.com/opencobra/cobrapy"><strong>COBRApy</strong></a> will be used.</p>
+<p><strong>What is COBRApy?</strong> COBRA methods are widely used for genome-scale modeling of metabolic networks in both prokaryotes and eukaryotes. <strong>COBRApy</strong> is a constraint-based modeling package designed to handle the biological complexity of modern COBRA models. It provides access to commonly used COBRA methods, including Flux Balance Analysis (FBA), Flux Variability Analysis (FVA), and gene deletion analyses.</p>
+<hr>
+<section id="installation-of-cobrapy" class="level3">
+<h3 class="anchored" data-anchor-id="installation-of-cobrapy">Installation of COBRApy</h3>
+<p>For installation help, please use the <a href="https://groups.google.com/g/cobrapy">COBRApy Google Group</a>. For usage instructions, see the <a href="https://github.com/opencobra/cobrapy">documentation</a>.</p>
+<p>We officially test COBRApy with Python 3.7+, though it generally works with Python 3.4 or higher. Windows users, and potentially Mac OS users, are recommended to use the <strong>Anaconda Python distribution</strong>.</p>
+<section id="stable-version-installation" class="level4">
+<h4 class="anchored" data-anchor-id="stable-version-installation">Stable Version Installation</h4>
+<p><strong>Mac OS X or Linux</strong></p>
+<ol type="1">
+<li><p>We highly recommend creating a Python virtual environment (<a href="https://realpython.com/python-virtual-environments-a-primer/">guide here</a>).</p></li>
+<li><p>Activate your environment and install COBRApy using:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install cobra</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ol>
+<p><strong>Microsoft Windows</strong> If using Anaconda, open an Anaconda shell and install COBRApy from the conda-forge channel:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> install <span class="at">-c</span> conda-forge cobra</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>For more information, visit the <a href="https://github.com/opencobra/cobrapy"><strong>COBRApy GitHub repository</strong></a>.</p>
+<p>Also good to configure your favorite environments for python coding. Some of them are below, chose the one you like.</p>
+</section>
+</section>
+<section id="python-development-environments-quick-guide" class="level2">
+<h2 class="anchored" data-anchor-id="python-development-environments-quick-guide">Python Development Environments: Quick Guide</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Environment</th>
+<th>Best For</th>
+<th>Key Features</th>
+<th>Access</th>
+<th>Setup</th>
+<th>Link</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>JupyterLab</strong></td>
+<td>Data analysis, visualization, teaching</td>
+<td>Interactive notebooks, Markdown support, flexible layout</td>
+<td>Local or cloud</td>
+<td>Requires installation</td>
+<td><a href="https://jupyter.org/">jupyter.org</a></td>
+</tr>
+<tr class="even">
+<td><strong>Google Colab</strong></td>
+<td>Cloud-based notebooks with GPU/TPU support</td>
+<td>Free cloud access, no setup needed, collaboration features</td>
+<td>Browser-based</td>
+<td>No installation required</td>
+<td><a href="https://colab.research.google.com/">colab.research.google.com</a></td>
+</tr>
+<tr class="odd">
+<td><strong>VS Code</strong></td>
+<td>Versatile code editor with Python support</td>
+<td>Lightweight, extensible, supports Jupyter notebooks</td>
+<td>Local</td>
+<td>Requires installation</td>
+<td><a href="https://code.visualstudio.com/">code.visualstudio.com</a></td>
+</tr>
+<tr class="even">
+<td><strong>Spyder</strong></td>
+<td>Scientific computing and data analysis</td>
+<td>Integrated IPython console, variable explorer, built-in plotting</td>
+<td>Local</td>
+<td>Requires installation</td>
+<td><a href="https://www.spyder-ide.org/">spyder-ide.org</a></td>
+</tr>
+<tr class="odd">
+<td><strong>PyCharm</strong></td>
+<td>Professional Python development</td>
+<td>Advanced code analysis, debugging, project management</td>
+<td>Local</td>
+<td>Requires installation</td>
+<td><a href="https://www.jetbrains.com/pycharm/">jetbrains.com/pycharm</a></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<section id="quick-comparison" class="level3">
+<h3 class="anchored" data-anchor-id="quick-comparison">Quick Comparison</h3>
 <ul>
-<li>Explore genome-scale metabolic network models.</li>
-<li>Learn strategies to contextualize models using experimental or omics data.</li>
-<li>Apply Flux Balance Analysis (FBA) to predict and interpret cellular metabolic behaviors.</li>
+<li><p><strong>JupyterLab</strong>: Ideal for interactive coding, data visualization, and educational purposes. It allows you to combine code, text, and visualizations in a single document.</p></li>
+<li><p><strong>Google Colab</strong>: Perfect for quick experiments and collaborative projects. It offers free access to GPUs and TPUs, making it suitable for machine learning tasks.</p></li>
+<li><p><strong>VS Code</strong>: A lightweight and versatile code editor that supports Python development. It can be extended with various plugins to suit different workflows.</p></li>
+<li><p><strong>Spyder</strong>: Tailored for scientific computing, it provides an interactive console and tools for data analysis and visualization.</p></li>
+<li><p><strong>PyCharm</strong>: A full-fledged IDE offering advanced features for professional Python development, including debugging, testing, and project management.</p></li>
 </ul>
-<p>Through guided examples and practical exercises, participants will gain the skills to analyze metabolic fluxes, interpret FBA results, and translate model outputs into meaningful biological insights.</p>
-<section id="introduction-to-systems-biology" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="introduction-to-systems-biology">Introduction to Systems Biology</h2>
-<p>Over the past few decades, the scientific community has witnessed remarkable technological progress that has enabled the generation of high-depth, multidimensional omics data, along with the development of advanced informatics tools to analyze them. These diverse data types include transcriptomics, proteomics, metabolomics, lipidomics, and microbiome profiles. Integrative analysis of such multilayered datasets provides valuable system-level insights into biological processes and disease mechanisms. Techniques such as network analysis and machine learning can be applied to interpret complex, multi-dimensional data; however, their effective use requires careful consideration of both the biological question and the methodological purpose.</p>
-<p>Systems biology is an interdisciplinary field focused on the integrative analysis of multilayered data to understand complex biological mechanisms. Biological systems are often described as “complex systems,” composed of numerous interacting elements that collectively give rise to emergent behaviors. Unlike purely physical complex systems made of identical components, biological systems consist of diverse and multifunctional elements that interact nonlinearly and selectively to generate coherent and regulated behaviors. In such systems, functionality arises not only from the structure of the network but also from the specific properties and interactions of its components, highlighting that biological systems are best viewed as symbiotic rather than merely complex.</p>
-<p>The emergence of high-throughput experimental technologies now allows researchers to investigate cellular components in detail and to explore the interactions that define their collective function. Understanding the topological and dynamic properties of the diverse networks governing cellular behavior remains one of the central challenges in modern biology. Systems biology seeks to explain biological function in terms of the interactions among components, whether these components are genes, proteins, metabolites, or other molecular entities. With the ability to measure a vast array of such components, biological systems have become increasingly complex to study, demanding sophisticated computational approaches grounded in mathematics and statistics. This need has driven the growth of systems biology as a discipline, emphasizing network-based analyses to decipher how various biological components interact to shape cellular and organismal functions.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -634,10 +748,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./FBA.html" class="pagination-link" aria-label="Flux Balance Analysis (FBA)">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Flux Balance Analysis (FBA)</span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./GEM.html" class="pagination-link" aria-label="Genome scale metabolic network model (GEM)">
-        <span class="nav-page-text">Genome scale metabolic network model (GEM)</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./exercises.html" class="pagination-link" aria-label="Problems">
+        <span class="nav-page-text">Problems</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

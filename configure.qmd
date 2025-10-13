@@ -1,0 +1,59 @@
+# System Configuration {.unnumbered}
+
+In this workshop, the Python package [**COBRApy**](https://github.com/opencobra/cobrapy) will be used.
+
+**What is COBRApy?** COBRA methods are widely used for genome-scale modeling of metabolic networks in both prokaryotes and eukaryotes. **COBRApy** is a constraint-based modeling package designed to handle the biological complexity of modern COBRA models. It provides access to commonly used COBRA methods, including Flux Balance Analysis (FBA), Flux Variability Analysis (FVA), and gene deletion analyses.
+
+------------------------------------------------------------------------
+
+### Installation of COBRApy
+
+For installation help, please use the [COBRApy Google Group](https://groups.google.com/g/cobrapy). For usage instructions, see the [documentation](https://github.com/opencobra/cobrapy).
+
+We officially test COBRApy with Python 3.7+, though it generally works with Python 3.4 or higher. Windows users, and potentially Mac OS users, are recommended to use the **Anaconda Python distribution**.
+
+#### Stable Version Installation
+
+**Mac OS X or Linux**
+
+1.  We highly recommend creating a Python virtual environment ([guide here](https://realpython.com/python-virtual-environments-a-primer/)).
+
+2.  Activate your environment and install COBRApy using:
+
+    ``` bash
+    pip install cobra
+    ```
+
+**Microsoft Windows** If using Anaconda, open an Anaconda shell and install COBRApy from the conda-forge channel:
+
+``` bash
+conda install -c conda-forge cobra
+```
+
+For more information, visit the [**COBRApy GitHub repository**](https://github.com/opencobra/cobrapy).
+
+Also good to configure your favorite environments for python coding. Some of them are below, chose the one you like.
+
+## Python Development Environments: Quick Guide
+
+| Environment      | Best For                                   | Key Features                                                     | Access         | Setup                    | Link                                                            |
+|------------|------------|--------------|------------|------------|--------------|
+| **JupyterLab**   | Data analysis, visualization, teaching     | Interactive notebooks, Markdown support, flexible layout         | Local or cloud | Requires installation    | [jupyter.org](https://jupyter.org/)                             |
+| **Google Colab** | Cloud-based notebooks with GPU/TPU support | Free cloud access, no setup needed, collaboration features       | Browser-based  | No installation required | [colab.research.google.com](https://colab.research.google.com/) |
+| **VS Code**      | Versatile code editor with Python support  | Lightweight, extensible, supports Jupyter notebooks              | Local          | Requires installation    | [code.visualstudio.com](https://code.visualstudio.com/)         |
+| **Spyder**       | Scientific computing and data analysis     | Integrated IPython console, variable explorer, built-in plotting | Local          | Requires installation    | [spyder-ide.org](https://www.spyder-ide.org/)                   |
+| **PyCharm**      | Professional Python development            | Advanced code analysis, debugging, project management            | Local          | Requires installation    | [jetbrains.com/pycharm](https://www.jetbrains.com/pycharm/)     |
+
+------------------------------------------------------------------------
+
+###  Quick Comparison
+
+-   **JupyterLab**: Ideal for interactive coding, data visualization, and educational purposes. It allows you to combine code, text, and visualizations in a single document.
+
+-   **Google Colab**: Perfect for quick experiments and collaborative projects. It offers free access to GPUs and TPUs, making it suitable for machine learning tasks.
+
+-   **VS Code**: A lightweight and versatile code editor that supports Python development. It can be extended with various plugins to suit different workflows.
+
+-   **Spyder**: Tailored for scientific computing, it provides an interactive console and tools for data analysis and visualization.
+
+-   **PyCharm**: A full-fledged IDE offering advanced features for professional Python development, including debugging, testing, and project management.

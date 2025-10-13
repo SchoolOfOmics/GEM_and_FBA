@@ -1,0 +1,31 @@
+# Flux Balance Analysis (FBA) {.unnumbered}
+
+**Flux Balance Analysis (FBA)** is a mathematical approach used to study the flow of metabolites through a metabolic network. Metabolic flux refers to the rate at which metabolites are converted in a given reaction. FBA allows the prediction of phenotypes such as an organism's growth rate or the production of biotechnologically relevant metabolites by calculating the distribution of fluxes across the network.
+
+The first step in FBA is to mathematically represent all metabolic reactions in a **stoichiometric matrix (S)**, where rows correspond to metabolites and columns correspond to reactions. Stoichiometric coefficients indicate the participation of metabolites in each reaction: negative values represent consumption, positive values represent production, and zero indicates no involvement. Because most reactions involve only a few metabolites, the matrix is typically sparse. A vector **v** represents the flux through each reaction, while **x** denotes metabolite concentrations. Assuming steady-state conditions (dx/dt = 0), the system is expressed as **S·v = 0**, meaning all flux distributions must satisfy mass balance constraints.
+
+In large-scale networks, the number of reactions usually exceeds the number of metabolites, resulting in more unknowns than equations and thus multiple possible flux distributions. FBA introduces **constraints** (from stoichiometry and reaction bounds) and identifies **optimal flux distributions** within the feasible solution space by maximizing or minimizing a **linear objective function**: **Z = cᵀ·v**, where **c** is a vector of weights representing the contribution of each reaction to the objective. Linear programming is used to solve this optimization problem, identifying fluxes that satisfy the constraints while optimizing the chosen objective.
+
+The choice of objective function depends on the biological question. Common objectives include maximizing biomass or growth, maximizing or minimizing metabolite production, minimizing nutrient uptake, or minimizing total flux (to study efficient metabolic routing). Accurate FBA depends on high-quality metabolic network reconstruction, careful constraint selection, and comprehensive genome annotation. Incomplete genome annotation can lead to reactions being predicted with zero flux due to missing upstream or downstream pathways.
+
+Extensions of FBA, such as **Flux Variability Analysis (FVA)** and **parsimonious FBA (pFBA)**, allow deeper analysis. FVA calculates the minimum and maximum possible fluxes for each reaction under network constraints, enabling studies of alternative optima, flux distribution under suboptimal conditions, network flexibility, redundancy, and applications in strain design or process optimization. pFBA seeks to minimize the total flux in the network while maintaining optimal performance of the chosen objective, providing insights into efficient flux allocation.
+
+**Example: Predicting Growth in a Simple Metabolic Network**
+
+Imagine a tiny cell with a metabolic network that can convert **glucose** into **biomass** and **byproducts** through a few reactions:
+
+1.  **Glucose uptake**: Glucose enters the cell.
+2.  **Conversion to energy**: Glucose is metabolized to generate ATP.
+3.  **Biomass production**: ATP and intermediates are used to produce new cell material.
+4.  **Byproduct secretion**: Some metabolites are secreted as waste.
+
+Using **FBA**, we can calculate the rates (fluxes) of all these reactions under the assumption that the system is in **steady state**—meaning metabolites don’t accumulate over time. We set an **objective function**, such as **maximizing biomass production**, and apply constraints like the maximum glucose the cell can take in.
+
+FBA then finds the **optimal flux distribution**, answering questions like:
+
+-   How fast should glucose be consumed?
+-   How much ATP is produced?
+-   How much biomass can the cell make?
+-   Which reactions are active and which are inactive?
+
+By changing the constraints or objective (e.g., maximizing production of a metabolite instead of growth), FBA can simulate different environmental conditions or metabolic engineering strategies.

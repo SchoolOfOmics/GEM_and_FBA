@@ -3,32 +3,32 @@ project:
   output-dir: docs
 
 book:
-  title: "scRNAseq Analysis of Dengue"
+  title: "Understanding metabolic networks"
   reader-mode: true
 
   page-footer:
-    left: |
-      The project belongs to the <a href="https://combatdengue.hemsida.eu/">COMBAT project</a>.
     right: |
       The Systems Virology Lab <a href="https://ki.se/en/research/research-areas-centres-and-networks/research-groups/the-systems-virology-lab-ujjwal-neogi">Link</a>.
-  cover-image: logo.svg
-  site-url: https://combatdengue.hemsida.eu/
+      
   chapters:
     - index.qmd
-    - intro.qmd
-
-    - part: Workflow
+    - part: Key Concepts
       chapters:
-        - processing.qmd
-        - analysis.qmd
+        - GEM.qmd
+        - Context.qmd
+        - FBA.qmd
+    - part: Exercises
+      chapters:
+        - configure.qmd
+        - exercises.qmd
+    - references.qmd
 
 format:
   html:
     theme:
-      - cosmo
+      - united
     css: styles.css
     code-link: true
 
     callout-appearance: simple
-
 editor: source
