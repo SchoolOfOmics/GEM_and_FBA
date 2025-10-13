@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Understanding metabolic networks</title>
+<title>Genome scale metabolic network model (GEM) – Understanding metabolic networks</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,7 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./GEM.html" rel="next">
+<link href="./Context.html" rel="next">
+<link href="./index.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -82,7 +83,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Introduction to Systems Biology</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./GEM.html">Key Concepts</a></li><li class="breadcrumb-item"><a href="./GEM.html">Genome scale metabolic network model (GEM)</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -116,7 +117,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Introduction to Systems Biology</span></a>
   </div>
 </li>
@@ -131,7 +132,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./GEM.html" class="sidebar-item-text sidebar-link">
+  <a href="./GEM.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Genome scale metabolic network model (GEM)</span></a>
   </div>
 </li>
@@ -188,16 +189,16 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#introduction-to-systems-biology" id="toc-introduction-to-systems-biology" class="nav-link active" data-scroll-target="#introduction-to-systems-biology">Introduction to Systems Biology</a></li>
+  <li><a href="#human-1-human-gem" id="toc-human-1-human-gem" class="nav-link active" data-scroll-target="#human-1-human-gem">Human 1 (Human-GEM)</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./GEM.html">Key Concepts</a></li><li class="breadcrumb-item"><a href="./GEM.html">Genome scale metabolic network model (GEM)</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Understanding metabolic networks</h1>
+<h1 class="title">Genome scale metabolic network model (GEM)</h1>
 </div>
 
 
@@ -214,20 +215,16 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Thank you for attending the talk titled <em>“AI Meets Metabolism: Efficient Multi-Omics Integration with GEMs.”</em></p>
-<p>In this hands-on session, we will cover how fluxosome data from the tissue or cell system under study is generated which is used for AI-assisted multi-omics integration. This workshop is designed to introduce participants the concepts of computational systems biology.</p>
-<p>During the session, you will:</p>
-<ul>
-<li>Explore genome-scale metabolic network models.</li>
-<li>Learn strategies to contextualize models using experimental or omics data.</li>
-<li>Apply Flux Balance Analysis (FBA) to predict and interpret cellular metabolic behaviors.</li>
-</ul>
-<p>Through guided examples and practical exercises, participants will gain the skills to analyze metabolic fluxes, interpret FBA results, and translate model outputs into meaningful biological insights.</p>
-<section id="introduction-to-systems-biology" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="introduction-to-systems-biology">Introduction to Systems Biology</h2>
-<p>Over the past few decades, the scientific community has witnessed remarkable technological progress that has enabled the generation of high-depth, multidimensional omics data, along with the development of advanced informatics tools to analyze them. These diverse data types include transcriptomics, proteomics, metabolomics, lipidomics, and microbiome profiles. Integrative analysis of such multilayered datasets provides valuable system-level insights into biological processes and disease mechanisms. Techniques such as network analysis and machine learning can be applied to interpret complex, multi-dimensional data; however, their effective use requires careful consideration of both the biological question and the methodological purpose.</p>
-<p>Systems biology is an interdisciplinary field focused on the integrative analysis of multilayered data to understand complex biological mechanisms. Biological systems are often described as “complex systems,” composed of numerous interacting elements that collectively give rise to emergent behaviors. Unlike purely physical complex systems made of identical components, biological systems consist of diverse and multifunctional elements that interact nonlinearly and selectively to generate coherent and regulated behaviors. In such systems, functionality arises not only from the structure of the network but also from the specific properties and interactions of its components, highlighting that biological systems are best viewed as symbiotic rather than merely complex.</p>
-<p>The emergence of high-throughput experimental technologies now allows researchers to investigate cellular components in detail and to explore the interactions that define their collective function. Understanding the topological and dynamic properties of the diverse networks governing cellular behavior remains one of the central challenges in modern biology. Systems biology seeks to explain biological function in terms of the interactions among components, whether these components are genes, proteins, metabolites, or other molecular entities. With the ability to measure a vast array of such components, biological systems have become increasingly complex to study, demanding sophisticated computational approaches grounded in mathematics and statistics. This need has driven the growth of systems biology as a discipline, emphasizing network-based analyses to decipher how various biological components interact to shape cellular and organismal functions.</p>
+<p>Metabolism is a fundamental aspect of human cellular function, and its disruption is closely linked to various health conditions, including cancer, obesity, and diabetes. Viral infections are also known to significantly alter host metabolism by hijacking and reprogramming metabolic pathways to support viral replication. Despite major technological advancements that allow measurement of thousands of metabolites, achieving a holistic understanding of cellular metabolism remains a considerable challenge. One reason for this difficulty is that metabolic activity is best defined by <strong>metabolic fluxes</strong>, the rates at which reactions occur, rather than by static concentrations of biomolecules such as proteins, metabolites, or mRNAs. Concentration data provide only indirect indicators of metabolic activity.</p>
+<p>To better capture and analyze these dynamic processes, researchers use <strong>genome-scale metabolic network models (GEMs)</strong> which are mathematical representations of the complete metabolic network within a cell, tissue, or organism. These models describe all known metabolic reactions as a set of stoichiometric equations that can be used to simulate cellular phenotypes and predict metabolic responses to different physiological or environmental conditions. Over the past decade, numerous GEMs of human metabolism have been developed and refined, forming the foundation for studying complex biological systems and disease mechanisms.</p>
+<p>Early efforts in this field led to the development of landmark models such as <strong>Recon</strong> and the <strong>Edinburgh Human Metabolic Network (EHMN)</strong>, which laid the groundwork for subsequent iterations including the Recon and Human Metabolic Reaction (HMR) series. These models have been instrumental in exploring disease-related metabolic alterations in conditions such as cancer, dysbiosis, fatty liver disease, and diabetes.</p>
+<p>Despite substantial progress, challenges remain in the ongoing development and integration of human GEMs. Common issues include inconsistent use of reaction, gene, and metabolite identifiers; propagation of legacy errors from earlier models; fragmented development efforts across different research groups; and limited transparency and coordination within the modeling community. Continued collaboration and standardization are essential for refining these models and fully harnessing their potential to advance our understanding of human metabolism and its role in health and disease.</p>
+<section id="human-1-human-gem" class="level2">
+<h2 class="anchored" data-anchor-id="human-1-human-gem">Human 1 (Human-GEM)</h2>
+<p>Robinson and colleagues developed <strong>Human1</strong>, the first integrated model unifying the major human genome-scale metabolic model (GEM) lineages into a single framework known as the <strong>Human-GEM</strong>. This model was created through extensive curation and integration of information from the Recon and HMR model families, along with data from HMR2, iHsa, and Recon3D. The resulting Human-GEM encompasses <strong>13,417 reactions</strong>, <strong>10,138 metabolites</strong> (including <strong>4,164 unique compounds</strong>), and <strong>3,625 genes</strong>.</p>
+<p>A version-controlled Git repository was used throughout the model’s development to ensure transparency, reproducibility, and collaboration within the scientific community. During curation, the developers removed <strong>8,185 duplicated reactions</strong> and <strong>3,215 duplicated metabolites</strong>, revised the chemical formulas of <strong>2,016 metabolites</strong>, rebalanced <strong>3,226 reactions</strong> based on stoichiometric principles, corrected the reversibility of <strong>83 reactions</strong>, and eliminated <strong>576 inconsistent reactions</strong> that violated mass conservation. Additionally, a new, updated <strong>generic human biomass reaction</strong> was formulated using data from various tissue and cell compositions to improve flux simulation accuracy.</p>
+<p>To ensure model quality, the team used <strong>Metabolic Model Testing (Memote)</strong>, a community-driven platform for evaluating GEMs. Human1 demonstrated excellent performance in these assessments, showing <strong>100% stoichiometric consistency</strong>, <strong>98.2% charge balance</strong>, and <strong>99.4% mass balance</strong> across reactions.</p>
+<p>Beyond its structural refinements, Human1 enables the integration of multiple molecular data types for comprehensive metabolic analysis. Information from databases such as CORUM, iHsa, and Recon3D, covering mammalian protein complexes and enzyme associations was integrated with gene-reaction data from earlier models to derive detailed <strong>gene-reaction rules</strong>. The inclusion of transcript- and protein-level associations further allows for <strong>direct integration of omics data</strong> into the model, facilitating context-specific simulations and deeper interpretation of cellular metabolism <span class="citation" data-cites="knuth84">[@knuth84]</span>.</p>
 
 
 </section>
@@ -634,10 +631,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./index.html" class="pagination-link" aria-label="Introduction to Systems Biology">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Introduction to Systems Biology</span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./GEM.html" class="pagination-link" aria-label="Genome scale metabolic network model (GEM)">
-        <span class="nav-page-text">Genome scale metabolic network model (GEM)</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./Context.html" class="pagination-link" aria-label="Contextualization of GEM">
+        <span class="nav-page-text">Contextualization of GEM</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

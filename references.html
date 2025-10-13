@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Understanding metabolic networks</title>
+<title>References – Understanding metabolic networks</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,7 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./GEM.html" rel="next">
+<link href="./exercises.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -82,7 +82,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Introduction to Systems Biology</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./references.html">References</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -116,7 +116,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Introduction to Systems Biology</span></a>
   </div>
 </li>
@@ -174,7 +174,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link">
+  <a href="./references.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">References</span></a>
   </div>
 </li>
@@ -183,21 +183,15 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
-   
-  <ul>
-  <li><a href="#introduction-to-systems-biology" id="toc-introduction-to-systems-biology" class="nav-link active" data-scroll-target="#introduction-to-systems-biology">Introduction to Systems Biology</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Understanding metabolic networks</h1>
+<h1 class="title">References</h1>
 </div>
 
 
@@ -214,23 +208,26 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Thank you for attending the talk titled <em>“AI Meets Metabolism: Efficient Multi-Omics Integration with GEMs.”</em></p>
-<p>In this hands-on session, we will cover how fluxosome data from the tissue or cell system under study is generated which is used for AI-assisted multi-omics integration. This workshop is designed to introduce participants the concepts of computational systems biology.</p>
-<p>During the session, you will:</p>
-<ul>
-<li>Explore genome-scale metabolic network models.</li>
-<li>Learn strategies to contextualize models using experimental or omics data.</li>
-<li>Apply Flux Balance Analysis (FBA) to predict and interpret cellular metabolic behaviors.</li>
-</ul>
-<p>Through guided examples and practical exercises, participants will gain the skills to analyze metabolic fluxes, interpret FBA results, and translate model outputs into meaningful biological insights.</p>
-<section id="introduction-to-systems-biology" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="introduction-to-systems-biology">Introduction to Systems Biology</h2>
-<p>Over the past few decades, the scientific community has witnessed remarkable technological progress that has enabled the generation of high-depth, multidimensional omics data, along with the development of advanced informatics tools to analyze them. These diverse data types include transcriptomics, proteomics, metabolomics, lipidomics, and microbiome profiles. Integrative analysis of such multilayered datasets provides valuable system-level insights into biological processes and disease mechanisms. Techniques such as network analysis and machine learning can be applied to interpret complex, multi-dimensional data; however, their effective use requires careful consideration of both the biological question and the methodological purpose.</p>
-<p>Systems biology is an interdisciplinary field focused on the integrative analysis of multilayered data to understand complex biological mechanisms. Biological systems are often described as “complex systems,” composed of numerous interacting elements that collectively give rise to emergent behaviors. Unlike purely physical complex systems made of identical components, biological systems consist of diverse and multifunctional elements that interact nonlinearly and selectively to generate coherent and regulated behaviors. In such systems, functionality arises not only from the structure of the network but also from the specific properties and interactions of its components, highlighting that biological systems are best viewed as symbiotic rather than merely complex.</p>
-<p>The emergence of high-throughput experimental technologies now allows researchers to investigate cellular components in detail and to explore the interactions that define their collective function. Understanding the topological and dynamic properties of the diverse networks governing cellular behavior remains one of the central challenges in modern biology. Systems biology seeks to explain biological function in terms of the interactions among components, whether these components are genes, proteins, metabolites, or other molecular entities. With the ability to measure a vast array of such components, biological systems have become increasingly complex to study, demanding sophisticated computational approaches grounded in mathematics and statistics. This need has driven the growth of systems biology as a discipline, emphasizing network-based analyses to decipher how various biological components interact to shape cellular and organismal functions.</p>
+<ol type="1">
+<li><p>Kitano, H., Computational systems biology. Nature, 2002. 420(6912): p.&nbsp;206-10</p></li>
+<li><p>Joshi, A., et al., Systems biology in cardiovascular disease: a multiomics approach. Nat Rev Cardiol, 2021. 18(5): p.&nbsp;313-330.</p></li>
+<li><p>Ma, H., et al., The Edinburgh human metabolic network reconstruction and its functional analysis. Mol Syst Biol, 2007. 3: p.&nbsp;135.</p></li>
+<li><p>Duarte, N.C., et al., Global reconstruction of the human metabolic network based on genomic and bibliomic data. Proc Natl Acad Sci U S A, 2007. 104(6): p.&nbsp;1777- 82.</p></li>
+<li><p>Thiele, I., et al., A community-driven global reconstruction of human metabolism. Nat Biotechnol, 2013. 31(5): p.&nbsp;419-25.</p></li>
+<li><p>Brunk, E., et al., Recon3D enables a three-dimensional view of gene variation in human metabolism. Nat Biotechnol, 2018. 36(3): p.&nbsp;272-281.</p></li>
+<li><p>Mardinoglu, A., et al., Integration of clinical data with a genome-scale metabolic model of the human adipocyte. Mol Syst Biol, 2013. 9: p.&nbsp;649.</p></li>
+<li><p>Wishart, D.S., et al., HMDB: the Human Metabolome Database. Nucleic Acids Res, 2007. 35(Database issue): p.&nbsp;D521-6.</p></li>
+<li><p>Agren, R., et al., Identification of anticancer drugs for hepatocellular carcinoma through personalized genome-scale metabolic modeling. Mol Syst Biol, 2014. 10(3): p.&nbsp;721.</p></li>
+<li><p>Orth, J.D., I. Thiele, and B.O. Palsson, What is flux balance analysis? Nat Biotechnol, 2010. 28(3): p.&nbsp;245-8.</p></li>
+<li><p>Mardinoglu, A., et al., Genome-scale metabolic modelling of hepatocytes reveals serine deficiency in patients with non-alcoholic fatty liver disease. Nat Commun, 2014. 5: p.&nbsp;3083.</p></li>
+<li><p>Robinson, J.L., et al., An atlas of human metabolism. Sci Signal, 2020. 13(624)</p></li>
+<li><p>Romero, P., et al., Computational prediction of human metabolic pathways from the complete human genome. Genome Biol, 2005. 6(1): p.&nbsp;R2.</p></li>
+<li><p>Agren, R., et al., Reconstruction of genome-scale active metabolic networks for 69 human cell types and 16 cancer types using INIT. PLoS Comput Biol, 2012. 8(5): p.&nbsp;e1002518</p></li>
+<li><p>Lieven, C., et al., MEMOTE for standardized genome-scale metabolic model testing. Nat Biotechnol, 2020. 38(3): p.&nbsp;272-276.</p></li>
+<li><p>Ebrahim, A., Lerman, J.A., Palsson, B.O. et al.&nbsp;COBRApy: COnstraints-Based Reconstruction and Analysis for Python. BMC Syst Biol 7, 74 (2013). https://doi.org/10.1186/1752-0509-7-74</p></li>
+</ol>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -634,11 +631,11 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./exercises.html" class="pagination-link" aria-label="Problems">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Problems</span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./GEM.html" class="pagination-link" aria-label="Genome scale metabolic network model (GEM)">
-        <span class="nav-page-text">Genome scale metabolic network model (GEM)</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->

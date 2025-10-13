@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Understanding metabolic networks</title>
+<title>Flux Balance Analysis (FBA) – Understanding metabolic networks</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,7 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./GEM.html" rel="next">
+<link href="./configure.html" rel="next">
+<link href="./Context.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -82,7 +83,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Introduction to Systems Biology</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./GEM.html">Key Concepts</a></li><li class="breadcrumb-item"><a href="./FBA.html">Flux Balance Analysis (FBA)</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -116,7 +117,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Introduction to Systems Biology</span></a>
   </div>
 </li>
@@ -143,7 +144,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./FBA.html" class="sidebar-item-text sidebar-link">
+  <a href="./FBA.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Flux Balance Analysis (FBA)</span></a>
   </div>
 </li>
@@ -183,21 +184,15 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
-   
-  <ul>
-  <li><a href="#introduction-to-systems-biology" id="toc-introduction-to-systems-biology" class="nav-link active" data-scroll-target="#introduction-to-systems-biology">Introduction to Systems Biology</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./GEM.html">Key Concepts</a></li><li class="breadcrumb-item"><a href="./FBA.html">Flux Balance Analysis (FBA)</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Understanding metabolic networks</h1>
+<h1 class="title">Flux Balance Analysis (FBA)</h1>
 </div>
 
 
@@ -214,23 +209,30 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Thank you for attending the talk titled <em>“AI Meets Metabolism: Efficient Multi-Omics Integration with GEMs.”</em></p>
-<p>In this hands-on session, we will cover how fluxosome data from the tissue or cell system under study is generated which is used for AI-assisted multi-omics integration. This workshop is designed to introduce participants the concepts of computational systems biology.</p>
-<p>During the session, you will:</p>
+<p><strong>Flux Balance Analysis (FBA)</strong> is a mathematical approach used to study the flow of metabolites through a metabolic network. Metabolic flux refers to the rate at which metabolites are converted in a given reaction. FBA allows the prediction of phenotypes such as an organism’s growth rate or the production of biotechnologically relevant metabolites by calculating the distribution of fluxes across the network.</p>
+<p>The first step in FBA is to mathematically represent all metabolic reactions in a <strong>stoichiometric matrix (S)</strong>, where rows correspond to metabolites and columns correspond to reactions. Stoichiometric coefficients indicate the participation of metabolites in each reaction: negative values represent consumption, positive values represent production, and zero indicates no involvement. Because most reactions involve only a few metabolites, the matrix is typically sparse. A vector <strong>v</strong> represents the flux through each reaction, while <strong>x</strong> denotes metabolite concentrations. Assuming steady-state conditions (dx/dt = 0), the system is expressed as <strong>S·v = 0</strong>, meaning all flux distributions must satisfy mass balance constraints.</p>
+<p>In large-scale networks, the number of reactions usually exceeds the number of metabolites, resulting in more unknowns than equations and thus multiple possible flux distributions. FBA introduces <strong>constraints</strong> (from stoichiometry and reaction bounds) and identifies <strong>optimal flux distributions</strong> within the feasible solution space by maximizing or minimizing a <strong>linear objective function</strong>: <strong>Z = cᵀ·v</strong>, where <strong>c</strong> is a vector of weights representing the contribution of each reaction to the objective. Linear programming is used to solve this optimization problem, identifying fluxes that satisfy the constraints while optimizing the chosen objective.</p>
+<p>The choice of objective function depends on the biological question. Common objectives include maximizing biomass or growth, maximizing or minimizing metabolite production, minimizing nutrient uptake, or minimizing total flux (to study efficient metabolic routing). Accurate FBA depends on high-quality metabolic network reconstruction, careful constraint selection, and comprehensive genome annotation. Incomplete genome annotation can lead to reactions being predicted with zero flux due to missing upstream or downstream pathways.</p>
+<p>Extensions of FBA, such as <strong>Flux Variability Analysis (FVA)</strong> and <strong>parsimonious FBA (pFBA)</strong>, allow deeper analysis. FVA calculates the minimum and maximum possible fluxes for each reaction under network constraints, enabling studies of alternative optima, flux distribution under suboptimal conditions, network flexibility, redundancy, and applications in strain design or process optimization. pFBA seeks to minimize the total flux in the network while maintaining optimal performance of the chosen objective, providing insights into efficient flux allocation.</p>
+<p><strong>Example: Predicting Growth in a Simple Metabolic Network</strong></p>
+<p>Imagine a tiny cell with a metabolic network that can convert <strong>glucose</strong> into <strong>biomass</strong> and <strong>byproducts</strong> through a few reactions:</p>
+<ol type="1">
+<li><strong>Glucose uptake</strong>: Glucose enters the cell.</li>
+<li><strong>Conversion to energy</strong>: Glucose is metabolized to generate ATP.</li>
+<li><strong>Biomass production</strong>: ATP and intermediates are used to produce new cell material.</li>
+<li><strong>Byproduct secretion</strong>: Some metabolites are secreted as waste.</li>
+</ol>
+<p>Using <strong>FBA</strong>, we can calculate the rates (fluxes) of all these reactions under the assumption that the system is in <strong>steady state</strong>—meaning metabolites don’t accumulate over time. We set an <strong>objective function</strong>, such as <strong>maximizing biomass production</strong>, and apply constraints like the maximum glucose the cell can take in.</p>
+<p>FBA then finds the <strong>optimal flux distribution</strong>, answering questions like:</p>
 <ul>
-<li>Explore genome-scale metabolic network models.</li>
-<li>Learn strategies to contextualize models using experimental or omics data.</li>
-<li>Apply Flux Balance Analysis (FBA) to predict and interpret cellular metabolic behaviors.</li>
+<li>How fast should glucose be consumed?</li>
+<li>How much ATP is produced?</li>
+<li>How much biomass can the cell make?</li>
+<li>Which reactions are active and which are inactive?</li>
 </ul>
-<p>Through guided examples and practical exercises, participants will gain the skills to analyze metabolic fluxes, interpret FBA results, and translate model outputs into meaningful biological insights.</p>
-<section id="introduction-to-systems-biology" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="introduction-to-systems-biology">Introduction to Systems Biology</h2>
-<p>Over the past few decades, the scientific community has witnessed remarkable technological progress that has enabled the generation of high-depth, multidimensional omics data, along with the development of advanced informatics tools to analyze them. These diverse data types include transcriptomics, proteomics, metabolomics, lipidomics, and microbiome profiles. Integrative analysis of such multilayered datasets provides valuable system-level insights into biological processes and disease mechanisms. Techniques such as network analysis and machine learning can be applied to interpret complex, multi-dimensional data; however, their effective use requires careful consideration of both the biological question and the methodological purpose.</p>
-<p>Systems biology is an interdisciplinary field focused on the integrative analysis of multilayered data to understand complex biological mechanisms. Biological systems are often described as “complex systems,” composed of numerous interacting elements that collectively give rise to emergent behaviors. Unlike purely physical complex systems made of identical components, biological systems consist of diverse and multifunctional elements that interact nonlinearly and selectively to generate coherent and regulated behaviors. In such systems, functionality arises not only from the structure of the network but also from the specific properties and interactions of its components, highlighting that biological systems are best viewed as symbiotic rather than merely complex.</p>
-<p>The emergence of high-throughput experimental technologies now allows researchers to investigate cellular components in detail and to explore the interactions that define their collective function. Understanding the topological and dynamic properties of the diverse networks governing cellular behavior remains one of the central challenges in modern biology. Systems biology seeks to explain biological function in terms of the interactions among components, whether these components are genes, proteins, metabolites, or other molecular entities. With the ability to measure a vast array of such components, biological systems have become increasingly complex to study, demanding sophisticated computational approaches grounded in mathematics and statistics. This need has driven the growth of systems biology as a discipline, emphasizing network-based analyses to decipher how various biological components interact to shape cellular and organismal functions.</p>
+<p>By changing the constraints or objective (e.g., maximizing production of a metabolite instead of growth), FBA can simulate different environmental conditions or metabolic engineering strategies.</p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -634,10 +636,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./Context.html" class="pagination-link" aria-label="Contextualization of GEM">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Contextualization of GEM</span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./GEM.html" class="pagination-link" aria-label="Genome scale metabolic network model (GEM)">
-        <span class="nav-page-text">Genome scale metabolic network model (GEM)</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./configure.html" class="pagination-link" aria-label="System Configuration">
+        <span class="nav-page-text">System Configuration</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
