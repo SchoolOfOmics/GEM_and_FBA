@@ -37,7 +37,7 @@ Also good to configure your favorite environments for python coding. Some of the
 ## Python Development Environments: Quick Guide
 
 | Environment      | Best For                                   | Key Features                                                     | Access         | Setup                    | Link                                                            |
-|------------|------------|--------------|------------|------------|--------------|
+|------------------|--------------------------------------------|------------------------------------------------------------------|----------------|--------------------------|-----------------------------------------------------------------|
 | **JupyterLab**   | Data analysis, visualization, teaching     | Interactive notebooks, Markdown support, flexible layout         | Local or cloud | Requires installation    | [jupyter.org](https://jupyter.org/)                             |
 | **Google Colab** | Cloud-based notebooks with GPU/TPU support | Free cloud access, no setup needed, collaboration features       | Browser-based  | No installation required | [colab.research.google.com](https://colab.research.google.com/) |
 | **VS Code**      | Versatile code editor with Python support  | Lightweight, extensible, supports Jupyter notebooks              | Local          | Requires installation    | [code.visualstudio.com](https://code.visualstudio.com/)         |
@@ -46,7 +46,7 @@ Also good to configure your favorite environments for python coding. Some of the
 
 ------------------------------------------------------------------------
 
-###  Quick Comparison
+### Quick Comparison
 
 -   **JupyterLab**: Ideal for interactive coding, data visualization, and educational purposes. It allows you to combine code, text, and visualizations in a single document.
 

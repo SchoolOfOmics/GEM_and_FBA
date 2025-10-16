@@ -1,3 +1,70 @@
-# Problems {.unnumbered}
+# Practical Session {.unnumbered}
 
-Will be updated soon
+We have learned that several generic models of the human metabolic network are publicly available and can be used. In this hands-on session, we will use the latest version of Human1 (Human-GEM) [Human-GEM GitHub](https://github.com/SysBioChalmers/Human-GEM).
+
+If you want to visually inspect the curated metabolic reactions in Human-GEM, you can use the [Metabolic Atlas](https://metabolicatlas.org/). The *Map Viewer* functionality allows you to explore the network. Since the number of reactions is very large, you will need to inspect each cellular compartment separately.
+
+Another useful resource is the table of all reactions in the model. This is available in the Human-GEM GitHub repository. Navigate to the `model` folder and download the Excel file. It contains each reaction, its equation, the genes (enzymes) catalyzing it, the corresponding metabolic pathway, etc. This file will be useful for your analysis.
+
+---
+
+### Exercise 1
+
+Download the Human-GEM generic model from the corresponding GitHub repository, load the model into your programming environment, and inspect the number of reactions, metabolites, and genes.
+
+```python
+import cobra
+
+GenericGEM = cobra.io.load_matlab_model("Human-GEM.mat")
+GenericGEM
+```
+
+---
+
+### Exercise 2
+
+Use biomass production as the objective function, perform flux balance analysis (FBA), and inspect the flux rates computed for each reaction for maximum biomass production in the human generic GEM.
+
+`MAR13082` is the ID for the biomass production reaction, which is included by default.
+
+```python
+GenericGEM.objective = GenericGEM.reactions.MAR13082  # Set objective function
+
+solution = GenericGEM.optimize()  # Run optimization
+solution  # Contains predicted fluxes
+
+flux_df = solution.fluxes.to_frame()
+flux_df.columns = ["Flux"]
+
+flux_df.to_csv("fba_solution.tsv", sep="\t")
+```
+
+In the FBA output, you can see fluxes and reduced costs:
+
+* **0** → Reaction is active or could be active without changing the objective.
+* **Negative** → Increasing this reaction’s flux would increase the objective (beneficial).
+* **Positive** → Increasing this reaction’s flux would decrease the objective (detrimental).
+
+🔹 Negative reduced cost → beneficial.
+🔹 Positive reduced cost → detrimental.
+🔹 Zero → neutral or already optimal.
+
+---
+
+### Exercise 3
+
+Change the objective function to ATP hydrolysis and perform FBA. Compare the fluxes with the previous biomass objective.
+
+`MAR03964` is the ID for ATP hydrolysis.
+
+```python
+GenericGEM.objective = GenericGEM.reactions.MAR03964  # Set ATP hydrolysis as objective
+
+solutionATP = GenericGEM.optimize()  # Run optimization
+solutionATP  # Predicted fluxes
+
+flux_df = solutionATP.fluxes.to_frame()
+flux_df.columns = ["Flux"]
+
+flux_df.to_csv("fba_solutionATP.tsv", sep="\t")
+```

@@ -1,6 +1,6 @@
 Thank you for attending the talk titled *"AI Meets Metabolism: Efficient Multi-Omics Integration with GEMs."*
 
-In this hands-on session, we will cover how fluxosome data from the tissue or cell system under study is generated which is used for AI-assisted multi-omics integration. This workshop is designed to introduce participants the concepts of computational systems biology.
+In this hands-on session, we will cover how fluxome data from the tissue or cell system under study is generated which is used for AI-assisted multi-omics integration. This workshop is designed to introduce participants the concepts of computational systems biology.
 
 During the session, you will:
 
